@@ -1,0 +1,7 @@
+run="npm run dev:all"
+
+[nix]
+channel="stable-23_05"
+
+[env]
+VITE_API_URL="http://0.0.0.0:5000/api"

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="g" x1="32" y1="32" x2="224" y2="224" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5322D"/>
+      <stop offset="1" stop-color="#C82A26"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded tile -->
+  <rect x="24" y="24" width="208" height="208" rx="56" fill="url(#g)"/>
+  <!-- Lynx mark: stylized L + ears -->
+  <path d="M92 88c0-6.6 5.4-12 12-12h44c6.6 0 12 5.4 12 12v12h-44v72h60c6.6 0 12 5.4 12 12v12H104c-6.6 0-12-5.4-12-12V88Z" fill="#fff"/>
+  <path d="M98 74l18 18h-18V74Z" fill="#fff" opacity="0.9"/>
+  <path d="M158 74v18h18l-18-18Z" fill="#fff" opacity="0.9"/>
+  <!-- subtle claw accents -->
+  <path d="M86 186c10 6 22 10 36 12" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.25"/>
+  <path d="M170 186c-10 6-22 10-36 12" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0.25"/>
+</svg>
+
