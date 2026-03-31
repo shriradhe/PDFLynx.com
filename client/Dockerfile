@@ -16,7 +16,7 @@ ARG VITE_GA4_ID=
 ENV VITE_APP_DOMAIN=$VITE_APP_DOMAIN
 ENV VITE_GA4_ID=$VITE_GA4_ID
 
-RUN npm run build
+RUN npx vite build
 
 # ── Stage 2: Serve with Nginx ────────────────────────────────────
 FROM nginx:1.27-alpine
