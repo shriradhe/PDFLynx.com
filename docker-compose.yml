@@ -1,0 +1,52 @@
+services:
+  # ── MongoDB ──────────────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    container_name: pdflynx-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - pdflynx-net
+
+  # ── Backend API ─────────────────────────────────────────────────
+  server:
+    build: ./server
+    container_name: pdflynx-server
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    env_file:
+      - ./server/.env
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/ilovepdf
+    volumes:
+      - uploads_data:/app/uploads
+    networks:
+      - pdflynx-net
+
+  # ── Frontend (Nginx + React) ────────────────────────────────────
+  client:
+    build:
+      context: ./client
+      args:
+        VITE_APP_DOMAIN: ${VITE_APP_DOMAIN:-https://pdflynx.com}
+        VITE_GA4_ID: ${VITE_GA4_ID:-}
+    container_name: pdflynx-client
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+    networks:
+      - pdflynx-net
+
+volumes:
+  mongo_data:
+  uploads_data:
+
+networks:
+  pdflynx-net:
+    driver: bridge

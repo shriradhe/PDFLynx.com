@@ -50,7 +50,7 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <a 
-                      href={`http://localhost:5000/uploads/${item.filename}`} 
+                      href={`/uploads/${item.filename}`} 
                       target="_blank" 
                       rel="noreferrer"
                       className="text-primary hover:text-primary-dark text-sm font-medium"
